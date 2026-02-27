@@ -95,3 +95,42 @@ h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #a78bfa; }
     font-size: 16px; /* evita zoom automático en iOS */
   }
 }
+.sidebar {
+  width: 220px;
+  background: #141414;
+  border-right: 1px solid #3b2f6e;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  gap: 8px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px 48px;
+  overflow-y: auto;
+}
+
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    padding: 16px;
+    padding-bottom: 80px; /* espacio para el bottom nav */
+  }
+
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #141414;
+    border-top: 1px solid #3b2f6e;
+    z-index: 100;
+  }
+}
