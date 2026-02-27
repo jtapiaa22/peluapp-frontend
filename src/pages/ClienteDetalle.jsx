@@ -87,11 +87,11 @@ export default function ClienteDetalle() {
 
    const enviarWhatsApp = (l) => {
     if (!cliente.whatsapp) { alert('El cliente no tiene WhatsApp registrado.'); return }
-    
-    const numero = cliente.whatsapp.replace(/\D/g, '')
-    const linkDescarga = getLicenciaDownloadUrl(l.id)
 
-    const mensaje = encodeURIComponent(
+    const numero = cliente.whatsapp.replace(/\D/g, '')
+    const linkDescarga = getLicenciaDownloadUrl(l.id).trim()
+
+    const mensajePlano =
         `🔑 Tu licencia de PeluApp\n` +
         `Hola ${cliente.nombre}! 👋\n\n` +
         `✅ Válida desde: ${l.desde}\n` +
@@ -100,11 +100,12 @@ export default function ClienteDetalle() {
         `*Instrucciones:*\n` +
         `1. Descargá el archivo del link\n` +
         `2. Abrí PeluApp y cargá el archivo`
-    )
 
-    // ⚠️ Cambio clave: api.whatsapp.com en vez de wa.me
+    const mensaje = encodeURIComponent(mensajePlano)
+
     window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${mensaje}`, '_blank')
     }
+
 
 
 
