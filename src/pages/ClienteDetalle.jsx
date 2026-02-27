@@ -96,7 +96,7 @@ export default function ClienteDetalle() {
         `Hola ${cliente.nombre}! 👋\n\n` +
         `✅ Válida desde: ${l.desde}\n` +
         `📅 Válida hasta: ${l.hasta}\n\n` +
-        `📥 *Descargá tu licencia desde acá:*\n${linkDescarga}\n\n` +
+        `📥 *Descargá tu licencia desde acá:* ${linkDescarga}\n\n` +
         `*Instrucciones:*\n` +
         `1. Descargá el archivo del link\n` +
         `2. Abrí PeluApp y cargá el archivo`
