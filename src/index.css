@@ -47,3 +47,51 @@ body {
 
 h1 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
 h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #a78bfa; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  /* Tablas: scroll horizontal en vez de desbordarse */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table {
+    min-width: 600px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  /* Botones más grandes para touch */
+  .btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  /* Inputs */
+  .input {
+    font-size: 16px; /* evita zoom automático en iOS */
+  }
+}

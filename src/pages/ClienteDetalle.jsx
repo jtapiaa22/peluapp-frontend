@@ -173,7 +173,7 @@ export default function ClienteDetalle() {
 
         {/* Tabla licencias */}
         {licencias.length === 0 ? (
-          <div style={{ textAlign: 'center', color: '#555', padding: 30 }}>No hay licencias generadas</div>
+          <div className="table-wrapper" style={{ textAlign: 'center', color: '#555', padding: 30 }}>No hay licencias generadas</div>
         ) : (
           <table className="table">
             <thead>

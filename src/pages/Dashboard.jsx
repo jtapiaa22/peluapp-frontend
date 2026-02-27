@@ -25,7 +25,7 @@ export default function Dashboard() {
 
       {/* Próximos a vencer */}
       {stats.proximosVencer.length > 0 && (
-        <div className="card">
+        <div className="table-wrapper">
           <h3>⚠️ Próximos a vencer</h3>
           <table className="table">
             <thead>

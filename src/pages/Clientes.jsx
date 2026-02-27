@@ -94,7 +94,7 @@ export default function Clientes() {
       )}
 
       {/* Tabla */}
-      <div className="card">
+      <div cclassName="table-wrapper">
         <table className="table">
           <thead>
             <tr>
