@@ -96,15 +96,16 @@ export default function ClienteDetalle() {
         `Hola ${cliente.nombre}! 👋\n\n` +
         `✅ Válida desde: ${l.desde}\n` +
         `📅 Válida hasta: ${l.hasta}\n\n` +
-        `📥 *Descargá tu licencia desde acá:* ${linkDescarga}\n\n` +
+        `📥 *Descargá tu licencia desde acá:*\n` +   // texto en una línea
+        `${linkDescarga}\n\n` +                      // SOLO la URL en la siguiente línea
         `*Instrucciones:*\n` +
         `1. Descargá el archivo del link\n` +
         `2. Abrí PeluApp y cargá el archivo`
 
     const mensaje = encodeURIComponent(mensajePlano)
-
     window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${mensaje}`, '_blank')
     }
+
 
 
 
