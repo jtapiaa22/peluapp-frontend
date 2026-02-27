@@ -124,7 +124,7 @@ export default function ClienteDetalle() {
   }
 
   const estadoDias = (hasta) => {
-    const dias = Math.ceil((new Date(hasta) - new Date()) / (1000 * 60 * 60 * 24)) + 1
+    const dias = Math.ceil((new Date(hasta) - new Date()) / (1000 * 60 * 60 * 24))
     if (dias <= 0)  return { label: 'Vencida',                    color: '#f87171' }
     if (dias <= 10) return { label: `Vence en ${dias}d`,          color: '#fbbf24' }
     return                 { label: `Activa — ${dias}d restantes`, color: '#4ade80' }

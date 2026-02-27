@@ -40,7 +40,7 @@ export default function Dashboard() {
               </thead>
               <tbody>
                 {stats.proximosVencer.map((p, i) => {
-                  const dias  = Math.ceil((new Date(p.hasta) - new Date()) / (1000 * 60 * 60 * 24)) + 1
+                  const dias  = Math.ceil((new Date(p.hasta) - new Date()) / (1000 * 60 * 60 * 24))
                   const color = dias <= 5 ? '#f87171' : dias <= 10 ? '#fbbf24' : '#4ade80'
                   return (
                     <tr key={i}>
