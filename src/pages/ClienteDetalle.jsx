@@ -124,18 +124,18 @@ export default function ClienteDetalle() {
   }
 
   const estadoDias = (hasta) => {
-    // Convertir a fechas puras sin timezone
     const hoy = new Date()
     const fin = new Date(hasta + 'T00:00:00')
     hoy.setHours(0, 0, 0, 0)
     
     const diffMs = fin.getTime() - hoy.getTime()
-    const dias = Math.ceil(diffMs / (1000 * 60 * 60 * 24))
+    const dias = Math.ceil(diffMs / (1000 * 60 * 60 * 24)) + 1
     
     if (dias <= 0)  return { label: 'Vencida',                     color: '#f87171' }
     if (dias <= 10) return { label: `Vence en ${dias}d`,           color: '#fbbf24' }
     return                 { label: `Activa — ${dias}d restantes`,  color: '#4ade80' }
     }
+
 
 
 

@@ -49,12 +49,13 @@ export default function Clientes() {
     hoy.setHours(0, 0, 0, 0)
     
     const diffMs = fin.getTime() - hoy.getTime()
-    const dias = Math.ceil(diffMs / (1000 * 60 * 60 * 24))
+    const dias = Math.ceil(diffMs / (1000 * 60 * 60 * 24)) + 1
     
     if (dias <= 0)   return { label: 'Vencida',                color: '#f87171' }
     if (dias <= 10)  return { label: `${dias}d restantes`,     color: '#fbbf24' }
     return                   { label: `${dias}d restantes`,     color: '#4ade80' }
     }
+
 
 
 
