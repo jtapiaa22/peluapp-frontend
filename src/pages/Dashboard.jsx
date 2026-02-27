@@ -16,47 +16,47 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
 
       {/* Tarjetas */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 32 }}>
-        <StatCard icon={<Users size={20} />}         label="Total clientes"    valor={stats.totalClientes} color="#a78bfa" />
-        <StatCard icon={<CheckCircle size={20} />}   label="Licencias activas" valor={stats.activas}       color="#4ade80" />
-        <StatCard icon={<AlertTriangle size={20} />} label="Vencen en 30 días" valor={stats.porVencer}     color="#fbbf24" />
-        <StatCard icon={<XCircle size={20} />}       label="Vencidas"          valor={stats.vencidas}      color="#f87171" />
+      <div className="stats-grid">
+        <StatCard icon={<Users size={20} />} label="Total clientes" valor={stats.totalClientes} color="#a78bfa" />
+        <StatCard icon={<CheckCircle size={20} />} label="Licencias activas" valor={stats.activas} color="#4ade80" />
+        <StatCard icon={<AlertTriangle size={20} />} label="Vencen en 30 días" valor={stats.porVencer} color="#fbbf24" />
+        <StatCard icon={<XCircle size={20} />} label="Vencidas" valor={stats.vencidas} color="#f87171" />
       </div>
 
       {/* Próximos a vencer */}
-      {stats.proximosVencer.length > 0 && (
-        <div className="table-wrapper">
+      {stats.proximosVencer.length > 0 ? (
+        <div className="card">
           <h3>⚠️ Próximos a vencer</h3>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Cliente</th>
-                <th>Peluquería</th>
-                <th>WhatsApp</th>
-                <th>Vence</th>
-                <th>Días restantes</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stats.proximosVencer.map((p, i) => {
-                const dias  = Math.ceil((new Date(p.hasta) - new Date()) / (1000 * 60 * 60 * 24)) + 1
-                const color = dias <= 5 ? '#f87171' : dias <= 10 ? '#fbbf24' : '#4ade80'
-                return (
-                  <tr key={i}>
-                    <td>{p.nombre}</td>
-                    <td style={{ color: '#a1a1aa' }}>{p.peluqueria || '—'}</td>
-                    <td style={{ color: '#a1a1aa' }}>{p.whatsapp || '—'}</td>
-                    <td>{p.hasta}</td>
-                    <td><span style={{ color, fontWeight: 700 }}>{dias} días</span></td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+          <div className="table-wrapper">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Peluquería</th>
+                  <th>WhatsApp</th>
+                  <th>Vence</th>
+                  <th>Días</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stats.proximosVencer.map((p, i) => {
+                  const dias  = Math.ceil((new Date(p.hasta) - new Date()) / (1000 * 60 * 60 * 24)) + 1
+                  const color = dias <= 5 ? '#f87171' : dias <= 10 ? '#fbbf24' : '#4ade80'
+                  return (
+                    <tr key={i}>
+                      <td>{p.nombre}</td>
+                      <td style={{ color: '#a1a1aa' }}>{p.peluqueria || '—'}</td>
+                      <td style={{ color: '#a1a1aa' }}>{p.whatsapp || '—'}</td>
+                      <td>{p.hasta}</td>
+                      <td><span style={{ color, fontWeight: 700 }}>{dias}</span></td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
-      )}
-
-      {stats.proximosVencer.length === 0 && (
+      ) : (
         <div className="card" style={{ textAlign: 'center', color: '#555', padding: 40 }}>
           ✅ No hay licencias próximas a vencer
         </div>
