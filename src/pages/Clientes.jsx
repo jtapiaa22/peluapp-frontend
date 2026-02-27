@@ -43,11 +43,19 @@ export default function Clientes() {
 
   const estadoLicencia = (hasta) => {
     if (!hasta) return { label: 'Sin licencia', color: '#737373' }
-    const dias = Math.ceil((new Date(hasta) - new Date()) / (1000 * 60 * 60 * 24))
+    
+    const hoy = new Date()
+    const fin = new Date(hasta + 'T00:00:00')
+    hoy.setHours(0, 0, 0, 0)
+    
+    const diffMs = fin.getTime() - hoy.getTime()
+    const dias = Math.ceil(diffMs / (1000 * 60 * 60 * 24))
+    
     if (dias <= 0)   return { label: 'Vencida',                color: '#f87171' }
     if (dias <= 10)  return { label: `${dias}d restantes`,     color: '#fbbf24' }
     return                   { label: `${dias}d restantes`,     color: '#4ade80' }
     }
+
 
 
   return (
