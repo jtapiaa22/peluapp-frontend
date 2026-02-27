@@ -23,4 +23,5 @@ export const enviarEmail = (licencia) => api.post('/notificaciones/email', {
   licencia_b64: licencia.licencia_b64
 })
 
-export const getLicenciaDownloadUrl = (id) => `${api.defaults.baseURL}/licencias/${id}/download`
+export const getLicenciaDownloadUrl = (id) =>
+  `${api.defaults.baseURL.replace(/\/$/, '')}/licencias/${id}/download`
