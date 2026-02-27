@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL})
+  baseURL: `${import.meta.env.VITE_API_URL}/api`
+})
 
 export const getStats         = ()          => api.get('/stats')
 export const getClientes      = ()          => api.get('/clientes')
@@ -23,5 +24,6 @@ export const enviarEmail = (licencia) => api.post('/notificaciones/email', {
   licencia_b64: licencia.licencia_b64
 })
 
+// Ojo: ahora usamos la URL pública SIN /api
 export const getLicenciaDownloadUrl = (id) =>
-  `${api.defaults.baseURL.replace(/\/$/, '')}/licencias/${id}/download`
+  `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/api/licencias/${id}/download`
